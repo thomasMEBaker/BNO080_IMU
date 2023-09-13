@@ -93,14 +93,16 @@ void printAccelerometer(){
 void plotAccelerometer(){
   int upperLim = 20;
   int lowLim = -20;
+  double kalmanFiltered = KalmanFilter(x);
+
   Serial.print(lowLim);
   Serial.print(F(","));
   Serial.print(upperLim);
   Serial.print(F(","));
-  Serial.println(x, 2);
+  Serial.print(x, 2);
+  Serial.print(F(","));
+  Serial.println(kalmanFiltered);
 }
-
-/*
 
 double KalmanFilter(double inputVal){
 		z_real = inputVal;
@@ -123,4 +125,4 @@ double KalmanFilter(double inputVal){
 
 		return x_est;
 }
-*/
+
